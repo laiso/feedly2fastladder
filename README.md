@@ -1,4 +1,4 @@
-# Feedly2fastladder
+# Feedly2Fastladder
 
 Bridge for converting to the Web API response of Fast ladder (https://github.com/fastladder/fastladder) from Feedly cloud.
 
@@ -13,14 +13,16 @@ https://github.com/laiso/fastladder/tree/feedly_backend
 
 ## Subscriptions
 
-```ruby:
+```ruby
+require 'feedly2fastladder'
+
 f2f = Feedly2fastladder.new(token: ENV["FEEDLY_TOKEN"])
 
 json_body = f2f.subs(unread: false)
 puts json_body
 ```
 
-```ruby:
+```ruby
 feeds = JSON.parse(json_body)
 feeds.each do |feed|
 	puts feed["title"]
@@ -29,14 +31,14 @@ end
 
 ## Articles
 
-```ruby:
+```ruby
 json_body = f2f.unread subscribe_id: 'feed/http://blogs.jetbrains.com/ruby/feed/'
 puts json_body
 ```
 
 ## Mark as Read
 
-```ruby:
+```ruby
 f2f.touch_all(subscribe_id: "feed/http://d.hatena.ne.jp/shu223/rss",
               entry_id: "8fPKPXQE24TE54JEOGjF2sZj8ETeM/gFTA93+y2aPso=_148ff50f96b:56909a5:9c034b5e")
 ```
