@@ -23,7 +23,7 @@ puts json_body
 ```ruby:
 feeds = JSON.parse(json_body)
 feeds.each do |feed|
-	puts feed["tile"]
+	puts feed["title"]
 end
 ```
 
